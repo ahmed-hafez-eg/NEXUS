@@ -2,7 +2,9 @@
 name = "nexus"
 version = "1.0.0"
 description = "Knowledge Connected"
-authors = ["NEXUS Team"]
+authors = ["Ahmed Hafez <ahmedhafez.officialksa@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/ahmed-hafez-eg/NEXUS"
 edition = "2021"
 
 [lib]

@@ -17,6 +17,12 @@
 
 Instead of fragmenting complex subjects across disjointed to-do apps, NEXUS models technical domains as **interactive, linked node networks** with deep GitHub repository integration and granular activity metrics.
 
+<br />
+
+![NEXUS Canvas Preview](docs/screenshots/canvas_workspace.png)
+
+<br />
+
 [Key Features](#-key-features) • [SpaceLink Architecture](#-spacelink-architecture) • [Activity Analysis](#-activity-analysis--heatmaps) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Architecture](#-architecture--design-decisions)
 
 </div>
@@ -42,6 +48,11 @@ Traditional productivity tools force this multi-dimensional knowledge into flat,
 - **Focus Targets:** Designate any node as an active "Focus Target" to spotlight high-priority objectives and dim ambient canvas noise.
 - **Embedded Notes & External Links:** Attach rich markdown notes, external documentation references, and links to any sub-task.
 
+<div align="center">
+  <img src="docs/screenshots/add_node_panel.png" width="48%" alt="Add Node Panel with Icon Picker" />
+  <img src="docs/screenshots/github_integration.png" width="48%" alt="GitHub Integration" />
+</div>
+
 ### 🔗 SpaceLink Architecture & Cross-Space Projection
 - **Single Source of Truth:** Reference a node from *Space A* inside *Space B* via a `SpaceLinkNode`. Checking off tasks from the link immediately updates the source node in SQLite without data duplication.
 - **Bidirectional Traceability:** Target nodes display backlink badges indicating which other spaces reference them.
@@ -49,7 +60,12 @@ Traditional productivity tools force this multi-dimensional knowledge into flat,
 - **Circular Dependency Guard:** Graph traversal engine detects and blocks circular references (`Space A → Space B → Space A`).
 - **Cascade Cleanup:** Deleting a space or node automatically cascades and removes all dependent `SpaceLink` references, preventing broken states.
 
-### 📊 Practical Activity Analysis & Heatmaps
+---
+
+### 📊 Activity Analysis & Heatmaps
+
+![Activity Analysis Dashboard](docs/screenshots/analysis_dashboard.png)
+
 - **Single Unified Activity Dashboard:** Combines local checklist achievements and live GitHub commits with a dedicated source filter (`All | Tasks | GitHub`).
 - **Smart Time Ranges:** Switch between `4 weeks`, `12 weeks` (default, with 18px readable tiles), and `1 year`.
 - **Smart Start:** If you have sparse history, the grid automatically begins at your first active week with a 1–2 week buffer instead of rendering a mostly empty year.
@@ -58,6 +74,14 @@ Traditional productivity tools force this multi-dimensional knowledge into flat,
 - **Dynamic Scale Modes:** Toggle between `Fixed` thresholds (`0 | 1-2 | 3-5 | 6-9 | 10+`) and `Goal-Relative` thresholds (`0 | <50% | 50-99% | 100% | >100%`).
 - **14-Day Velocity Trend:** Bar chart featuring daily output against your target goal line and week-over-week velocity comparison (`+50%`).
 - **Workspace Distribution ("Where your time went"):** Visual distribution of time spent across workspaces; clicking any workspace filters the heatmap and stats dynamically.
+
+<br />
+
+<div align="center">
+  <img src="docs/screenshots/day_inspection_modal.png" width="65%" alt="Day Inspection Popover" />
+</div>
+
+---
 
 ### 🐙 Hierarchical GitHub Integration
 - **Strict Repo Inheritance:** Link an entire workspace to a GitHub repository, automatically cascading repo settings to all child nodes.
@@ -70,6 +94,10 @@ Traditional productivity tools force this multi-dimensional knowledge into flat,
 - **Argon Floating Shell:** Ergonomic floating rail, top-bar pills, and modal dialogs that maximize canvas workspace.
 - **Zero Startup Flash:** Window background and HTML body pre-styled to prevent white flashes on boot.
 - **Light Theme Intact:** Complete high-contrast light theme switchable via top-rail toggle.
+
+<div align="center">
+  <img src="docs/screenshots/light_mode.png" width="80%" alt="Light Mode Canvas" />
+</div>
 
 ### 🔒 Offline-First & Data Sovereignty
 - **Local SQLite Engine:** Data stored in a local SQLite database (`roadmap.db`) with native foreign-key constraints enabled.
@@ -97,6 +125,8 @@ Traditional productivity tools force this multi-dimensional knowledge into flat,
 
 ```text
 StudyApp/
+├── docs/
+│   └── screenshots/            # High-resolution application screenshots
 ├── src/
 │   ├── components/
 │   │   ├── AddCoursePanel/     # Node creation modal with icon picker & checklist
@@ -214,5 +244,5 @@ The heatmap utilizes floating DOM references for cell hover tooltips. Updating c
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 <div align="center">
-<sub>Built with precision by developers, for developers.</sub>
+<sub>Built with precision by <a href="https://github.com/ahmed-hafez-eg">Ahmed Hafez</a>.</sub>
 </div>
